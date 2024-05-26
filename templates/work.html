@@ -1,0 +1,63 @@
+{% extends "base.html" %} 
+{% load static %}
+
+{% block css %} <link rel="stylesheet" href="{% static 'work.css' %}"> {% endblock %}
+{% block name %} {{user.name}} {% endblock %}
+{% block content %}
+
+    <div class="container">
+        <h4 style="font-weight: bold;">ПОДАТЬ ЗАЯВКУ НА ПРОЕКТ</h4>
+        <form action="" method="POST">
+            <input type="text" name="project_name" placeholder="Название проекта" class="form_input col-md-12" required>
+            <div class="d-flex justify-content-center" id="d1">
+                <input type="text" name="brand_name" placeholder="Название бренда" class="form_input" required>
+                <input type="text" name = "agency_name" placeholder="Название агенства" class="form_input" required>
+            </div>
+            <br>
+            <h4 style="font-weight: bold;">ВЫБЕРИТЕ НОМИНАЦИЮ ДЛЯ ПРОЕКТА</h4>
+            <div id="buis">
+                <input type="text" name="period" placeholder="Период реализации" class="form_input col-md-12" required>
+                <br>
+                <br>
+                <br>
+                <h6>Краткая информация о проекте</h6>
+                <p>Кратко расскажите о проекте, чтобы у членов жюри сложилось общее представление о вызовах, реализации и результатах проекта. Информация будет также в открытом доступе на сайте Премии.</p>
+                <input type="text" name="short_info" style="height: 50px;" class="form_input col-md-12" required>
+                <br>
+                <br>
+                <h6>Положение на рынке</h6>
+                <p>Опишите контекст, в котором находилась компания/ бренд: общую ситуацию на вашем рынке, положение относительно конкурентов. Это поможет членам жюри лучше понять нюансы вашей индустрии и оценить стартовые условия кампании </p>
+                <input type="text" name="short_info" style="height: 50px;" class="form_input col-md-12" required>
+                <br>
+                <br>
+                <h6>Цели и задачи проекта</h6>
+                <p>Опишите основные цели проекта, объем задач, который должен был быть реализован с указанием KPI</p>
+                <input type="text" name="short_info" style="height: 65px;" class="form_input col-md-12" required>
+                <br>
+                <br>
+                <h6>Стратегия</h6>
+                <p>Опишите целевые аудитории и ее инсайты, какие были приняты стратегические решения для достижения заявленных целей</p>
+                <input type="text" name="short_info" style="height: 65px;" class="form_input col-md-12" required>
+                <br>
+                <br>
+                <h6>Креативная идея</h6>
+                <p>Опишите, что выделяет кампанию среди других на рынке</p>
+                <input type="text" name = "agency_name"  style="height: 65px;" class="form_input col-md-12" required>
+                <br>
+                <br>
+                <h6>Три ключевых канала</h6>
+                <input type="text" name = "agency_name"  style="height: 39px;" placeholder="Канал взаимодействия 1" class="form_input col-md-12" required>
+                <input type="text" name = "agency_name" style="height: 39px;" placeholder="Канал взаимодействия 2" class="form_input col-md-12" required>
+                <input type="text" name = "agency_name" style="height: 39px;" placeholder="Канал взаимодействия 3" class="form_input col-md-12" required>
+                <h6>Реализация</h6>
+                <p>Опишите механику реализации проекта, включая шаги, ресурсы и методы</p>
+                <input type="text" name = "agency_name" style="height: 65px;" class="form_input col-md-12" required>
+                <input type="text" name = "agency_name" style="height: 65px;" class="form_input col-md-12" required>
+                <h6>Результаты</h6>
+                <p>Опишите результаты проекта и их соответствие запланированным KPI. Сравните ваши результаты с собственными показателями прошлых периодов, с общей динамикой индустрии и/или показателями ключевых конкурентов</p>
+                <input type="text" name = "agency_name" style="height: 65px;" class="form_input col-md-12" required>
+                    <input type="submit" value="ВОЙТИ" class="submit">
+        </div>
+        </form>
+    </div>
+{% endblock %}

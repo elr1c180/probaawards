@@ -1,0 +1,23 @@
+.form_input {
+    border-radius: 15px;
+    border: 1px solid #CCCCCC;
+    padding: 5px;
+    height: 39px;
+    width: 321px;
+    margin: 5px;
+}
+
+.submit {
+    background-color: #F6A237;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 15px;
+    width: 321px;
+    height: 53px;
+    border: 0;
+}
+
+a {
+    color: #000000;
+}

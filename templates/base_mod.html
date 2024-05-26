@@ -1,0 +1,78 @@
+{% load static %}
+<style>
+    a.nav-link#work {
+    color: white;
+    font-weight: 500;
+    background-color: #F6A237;
+    border-radius: 15px;
+    margin: 5px;
+}
+a.nav-link#project {
+    font-weight: 400;
+    font-size: 18px;
+    text-decoration: underline;
+}
+i.fa.fa-user-circle-o {
+    font-size: 30px;
+    font-weight: bold;
+    padding: 10px;
+}
+#work_mem {
+    font-weight: 500;
+    /* background-color: #F6A237; */
+    border-radius: 15px;
+    border: 1px solid #F6A237;
+    text-transform: uppercase;
+    color: #000;
+    font-size: 14px;
+    font-weight: 500;
+    margin: 5px;
+
+}
+</style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %} Proba Awards {% endblock %}</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+    <link rel="stylesheet"  href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    {% block css %} {% endblock %}
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
+          <a class="navbar-brand" href="#">
+            <img src="{% static 'logo.svg' %}" alt="">
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link" id="work_mem" aria-current="page" href="{% url 'work' %}">Работы конкурсантов</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" id="work" aria-current="page" href="{% url 'work' %}">Аккаунты</a>
+              </li>
+              {% comment %} <li class="nav-item">
+                <a class="nav-link" href="#">Pricing</a>
+              </li> {% endcomment %}
+            </ul>
+            <span class="navbar-text">
+                <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+            </span>
+            <span class="navbar-text">
+                {% block name %} {% endblock %}<a href="{% url 'logout' %}">Выйти</a>
+            </span>
+          </div>
+        </div>
+      </nav>
+    {% block content %}
+
+    {% endblock %}
+</body>
+</html>
