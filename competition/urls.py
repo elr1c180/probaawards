@@ -29,5 +29,8 @@ urlpatterns = [
     path('logout/', logout_view, name="logout"),
     path('reset_pass/<int:id>/', reset_pass_check, name='reset_pass_check'),
     path('login_mod/', login_mod, name='login_mod'),
-    path('mod/', mod, name='mod')
+    path('mod/', mod, name='mod'),
+    path('jurys/', jury_view, name="jury"),
+    path('delete/<int:id>/', delete_user, name='delete_user'),
+    path('delete_jury/<int:id>/', delete_jury, name='delete_user'),
 ]

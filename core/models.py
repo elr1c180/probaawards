@@ -16,6 +16,22 @@ class Member(models.Model):
         verbose_name = 'Пользователь'
         verbose_name_plural = 'Пользователи'
 
+class JuryGroups(models.Model):
+    name = models.CharField('Название группы', max_length=250)
+    users = models.ManyToManyField('Jury')
+
+    def __str__(self) -> str:
+        return self.name
+
+class Jury(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='Закреплено за пользователем')
+    name = models.CharField(verbose_name='ФИО', max_length=250)
+    email = models.CharField('E-mail', max_length=3500)
+    password = models.CharField('Пароль', max_length=250)
+
+    def __str__(self) -> str:
+        return self.name
+
 class Work(models.Model):
     user = models.ForeignKey(Member, on_delete=models.CASCADE, verbose_name='Владелец')
     project_name = models.CharField(max_length=3500)

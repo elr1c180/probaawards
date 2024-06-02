@@ -54,8 +54,8 @@
         <div class="row">
             <h3 style="text-transform:uppercase;font-weight:bold">Аккаунты</h3>
             <div class="row">
-                <a class="active_btn col-md-2" aria-current="page" href="{% url 'work' %}">конкурсанты</a>
-                <a class="non_active col-md-2" aria-current="page" href="{% url 'jury' %}">жюри</a>
+                <a class="non_active col-md-2" aria-current="page" href="{% url 'mod' %}">конкурсанты</a>
+                <a class="active_btn col-md-2" aria-current="page" href="{% url 'work' %}">жюри</a>
             </div>
         </div>
     </div>
@@ -66,19 +66,15 @@
         <center>{{ message }}</center>
     {% endfor %}
     <div class="row" style="font-weight:700; text-transform: uppercase;">
-        <p class="col-md-2 head">Имя</p>
-        <p class="col-md head">Название компании</p>
-        <p class="col-md head">Телефон</p>
-        <p class="col-md-4 head">Email</p>
-        <p class="col-md head" style="color:transparent">Email</p>
+        <p class="col-md head">Имя</p>
+        <p class="col-md head">Группа</p>
+        <p class="col-md-1 head" style="color:transparent">Email</p>
     </div>
-    {% for member in members %}
+    {% for jury, group in  total %}
         <div class="row members">
-                <p class="col-md-2">{{member.name}}</p>
-                <p class="col-md">{{ member.company }}</p>
-                <p class="col-md">{{ member.phone }}</p>
-                <p class="col-md-4"><span class="col-md">{{member.email}}</span></p>
-                <p class="col-md"><a href="/delete/{{ member.id }}" class="active_btn">Удалить</a></p>
+                <p class="col-md">{{jury.name}}</p>
+                <p class="col-md">{{ group.name }}</p>
+                <p class="col-md-1"><a href="/delete_jury/{{ jury.id }}" class="active_btn">Удалить</a></p>
         </div>
     {% endfor %}
 </div>

@@ -138,5 +138,34 @@ def login_mod(request):
     return render(request, 'login_mod.html', {'form':LoginFormMod})
 
 
-def mod(request):
-    return render(request, 'main_mod.html')
+def mod(request): # тут выводятся аккаунты конкурсантов по умолчанию
+    members = Member.objects.all()
+    
+    return render(request, 'main_mod.html', {'members':members})
+
+def jury_view(request):
+
+    jurys = Jury.objects.all()
+    groups = JuryGroups.objects.all()
+    total = zip(jurys, groups)
+    return render(request, 'jury.html', {'total':total})
+
+def delete_user(request, id):
+    id = id
+    
+    root_user = Member.objects.get(id=id).user
+    name = Member.objects.get(id=id).name
+    root_user.delete()
+    root_user.save()
+    messages.error(request, f'Вы успешно удалили пользователя {name}')
+    return redirect('/mod/')
+
+def delete_jury(request, id):
+    id = id
+    
+    root_user = Jury.objects.get(id=id).user
+    name = Jury.objects.get(id=id).name
+    root_user.delete()
+    root_user.save()
+    messages.error(request, f'Вы успешно удалили пользователя {name}')
+    return redirect('/jurys/')
